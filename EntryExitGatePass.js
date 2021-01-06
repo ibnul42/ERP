@@ -5,8 +5,22 @@ var scope = clientScopeScript.scope;
         angular.forEach (itemProps, function (itemProp) {
             scope.model.rule.disabled.item[itemProp] = null;
         });
+        
+        scope.model.rule.hidden.item.AddVendorLink = false;
+        scope.model.rule.hidden.item.AddVehicleLink = false;
+        scope.model.rule.hidden.item.AddDriverLink = false;
+        scope.model.rule.disabled.item.WHClusterId= false;
+        scope.model.rule.disabled.item.MasterCellId= false;
+        
         scope.model.rule.hidden.item.ExitPassCode = true;
         scope.model.rule.hidden.item.ExitTime = true;
+
+        modelValueObj.VendorTransporter = {
+            searchParams: {
+                QueryData: '{VendorTypeGatePass: ["13224"]}'
+            }
+        };
+        
         modelValueObj.Vehicle = {
             searchParams: {
                 QueryData: '{VendorTransporter: ["0"]}'
@@ -39,9 +53,22 @@ var scope = clientScopeScript.scope;
             else
                 scope.model.rule.disabled.item[attrName] = null;
         }
+        
+        scope.model.rule.hidden.item.AddVendorLink = true;
+        scope.model.rule.hidden.item.AddVehicleLink = true;
+        scope.model.rule.hidden.item.AddDriverLink = true;
+        scope.model.rule.disabled.item.WHClusterId= true;
+        scope.model.rule.disabled.item.MasterCellId= true;
+        
         scope.model.rule.hidden.item.panel2 = null;
         scope.model.rule.hidden.item.ExitPassCode = null;
         scope.model.rule.hidden.item.ExitTime = null;
+        
+        modelValueObj.VendorTransporter = {
+            searchParams: {
+                QueryData: '{VendorTypeGatePass: ["13224"]}'
+            }
+        };
         modelValueObj.Vehicle = {
             searchParams: {
                 QueryData: '{VendorTransporter: [' + scope.item.VendorTransporter + ']}'
